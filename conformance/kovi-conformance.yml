@@ -1,0 +1,97 @@
+generated: '2026-07-19'
+method: probed
+source: >-
+  live probes of api.kovi.us and motorista.kovi.com.br, plus static analysis of the
+  Central do Motorista SPA JavaScript bundle
+summary: >-
+  Kovi operates a real production API but runs no public developer program. The
+  Central do Motorista driver web app is a Vue/Quasar SPA that talks to a private
+  GraphQL API. No OpenAPI, AsyncAPI, GraphQL SDL, SDK, sandbox, changelog, status
+  page or developer documentation is published, and introspection is not available
+  without credentials. Nothing below is inferred from marketing copy; each entry
+  records what a probe actually returned.
+api_surface:
+- style: GraphQL
+  endpoint: https://api.kovi.us/graphql
+  secondary_endpoints:
+  - https://api.kovi.us/graphql/driver-central
+  public: false
+  documented: false
+  evidence:
+  - source: https://motorista.kovi.com.br/js/app.df02b24b.js
+    kind: client-bundle
+    detail: >-
+      SPA bundle ships apollo-cache, apollo-link-error, apollo-link-http-common,
+      graphql and graphql-tag, and hardcodes the https://api.kovi.us/graphql and
+      https://api.kovi.us/graphql/driver-central endpoints.
+  - source: https://api.kovi.us/graphql
+    kind: live-probe
+    detail: >-
+      POST of a minimal __schema introspection query returned HTTP 401 with body
+      {"message":"Unauthorized"}. GET returns 403 at the edge. Introspection is
+      therefore not reachable unauthenticated and no schema could be captured.
+standards:
+- id: graphql
+  conforms: true
+  evidence: >-
+    live GraphQL endpoint at https://api.kovi.us/graphql; Apollo GraphQL client in
+    the first-party driver SPA
+- id: openapi
+  conforms: false
+  evidence: no OpenAPI or Swagger document published on any Kovi host
+- id: asyncapi
+  conforms: false
+  evidence: no event, streaming or webhook surface published
+- id: oauth2
+  conforms: false
+  evidence: >-
+    no /.well-known/oauth-authorization-server on any reachable host; driver login
+    is a phone-number plus 4-digit one-time-code flow per the published anti-fraud
+    guidance at https://www.kovi.com.br/seguranca
+- id: oidc
+  conforms: false
+  evidence: no valid /.well-known/openid-configuration (see well-known/kovi-well-known.yml)
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    unauthenticated error body is {"message":"..."}; not application/problem+json
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on kovi.com.br and www.kovi.com.br
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: no /.well-known/api-catalog document
+compliance_program:
+  published: true
+  url: https://www.kovi.com.br/etica-e-transparencia
+  scope: corporate integrity and ethics, not information-security certification
+  documents:
+  - name: Diretrizes do Programa de Integridade da Kovi
+    url: https://www.kovi.com.br/hubfs/Diretrizes%20do%20Programa%20de%20Integridade%20da%20Kovi.pdf
+  - name: Codigo de Etica e Conduta
+    url: https://www.kovi.com.br/hubfs/CB3digo_de_89tica_e_Conduta_-_Atualizado_-_Maio26.pdf
+  - name: Codigo de Conduta para Fornecedores e Prestadores de Servicos
+    url: https://www.kovi.com.br/hubfs/C%C3%B3digo%20de%20Conduta%20de%20Fornecedores%20e%20Prestadores%20de%20Servi%C3%A7os%20-%20Gabriele%20Damiano.pdf
+  ethics_hotline: kovi@linhaetica.com.br
+  transparency_reports:
+  - name: Relatorio de Transparencia 1o Semestre 2025
+    url: https://www.kovi.com.br/hubfs/Arquivos%20rodap%C3%A9/Relat%C3%B3rio%20de%20Transpar%C3%AAncia%201o%20Semestre%202025.pdf
+  certifications: []
+  certifications_note: >-
+    No SOC 2, ISO 27001, PCI DSS, HIPAA or FedRAMP certification is published, and no
+    trust center exists at trust.kovi.com.br, security.kovi.com.br or /compliance.
+security_disclosure:
+  published: false
+  note: >-
+    https://www.kovi.com.br/seguranca is consumer anti-scam guidance, not a
+    vulnerability disclosure policy. The Canal de Denuncias ethics hotline is a
+    whistleblower channel for conduct violations and explicitly not a security
+    reporting channel. No bug bounty program was found on HackerOne, Bugcrowd or
+    Intigriti.
+gaps:
+- no public API documentation or developer portal
+- no OpenAPI or GraphQL SDL published
+- no SDKs or client libraries in any public registry
+- no sandbox or test credentials
+- no changelog, status page or deprecation policy
+- no /.well-known/security.txt or vulnerability disclosure policy

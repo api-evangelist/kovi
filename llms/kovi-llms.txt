@@ -1,0 +1,50 @@
+# Kovi
+
+> Kovi (Kovi Tecnologia S.A.) is a Brazilian mobility company founded in 2018 that rents and subscribes cars to ride-hailing and delivery app drivers across Latin America. It offers monthly, annual and pay-per-kilometer plans bundling maintenance, protection and vehicle documentation, plus a purchase option on its Kovi Proprio product. Kovi operates in twelve Brazilian cities and in Mexico, and employs more than 1,400 people.
+
+## Important note for agents
+
+Kovi publishes **no public API, no developer portal and no API documentation**. Its production API at `https://api.kovi.us/graphql` is private and authentication-gated: unauthenticated requests return HTTP 401 and GraphQL introspection is unavailable. Do not attempt programmatic integration — there is no public credential path. Driver and customer interaction happens through the web and mobile apps below.
+
+## Company
+
+- [Website](https://www.kovi.com.br): Main Kovi site, plans and vehicle catalog (Portuguese)
+- [About Kovi](https://www.kovi.com.br/sobre-nos): Company history, footprint and mission
+- [Kovi Mexico](https://kovi.mx): Mexican operation
+- [Blog](https://www.kovi.com.br/blog): Company and driver-focused articles
+- [Contact](https://www.kovi.com.br/contato): Contact channels
+- [Careers](https://kovi.gupy.io/): Open roles
+
+## Products
+
+- [Monthly rental](https://www.kovi.com.br/alugar-carro-mensal): Month-to-month rental of certified pre-owned vehicles with auto-renewal
+- [Kovi Proprio](https://www.kovi.com.br/comprar-carro-proprio): Annual plan on a 0km vehicle with a purchase option from month 13
+- [Pay per kilometer](https://www.kovi.com.br/pague-o-km-que-rodar): Usage-based rental pricing
+- [Contracted maintenance](https://www.kovi.com.br/manutencao-contratada): Included maintenance program
+- [Escola Kovi](https://www.kovi.com.br/escola-kovi): Driver education program
+- [Direcao Segura](https://www.kovi.com.br/direcao-segura): Safe-driving program
+
+## Applications
+
+- [Central do Motorista](https://motorista.kovi.com.br/authentication/): Driver self-service web app (Vue SPA, private GraphQL backend)
+- [Sign up](https://cadastro.kovi.com.br/): New customer registration (Brazil)
+- [Sign up Mexico](https://registro.kovi.mx/): New customer registration (Mexico)
+- [Android app](https://play.google.com/store/apps/details?id=com.kovi&hl=pt_BR): Kovi mobile app
+
+## Support
+
+- [Help center](https://ajuda.kovi.com.br/hc/pt-br): Zendesk-hosted help center (Portuguese)
+- [Fraud and safety guidance](https://www.kovi.com.br/seguranca): How to avoid scams; official channel verification
+
+## Governance and legal
+
+- [Ethics and transparency](https://www.kovi.com.br/etica-e-transparencia): Compliance program, code of conduct and whistleblower channel
+- [Terms of use](https://www.kovi.com.br/hubfs/Arquivos%20rodap%C3%A9/Termos%20de%20Uso%20do%20site%20e%20do%20aplicativo.pdf): Site and application terms (PDF)
+- [Privacy notice](https://www.kovi.com.br/hubfs/Arquivos%20rodap%C3%A9/Aviso%20de%20Privacidade.pdf): Privacy notice (PDF)
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/kovi/refs/heads/main/apis.yml): APIs.json profile for Kovi
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/kovi/refs/heads/main/conformance/kovi-conformance.yml): Probed API surface, standards conformance and published gaps
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/kovi/refs/heads/main/security/kovi-domain-security.yml): Probed TLS, HSTS, DNSSEC, SPF and DMARC posture
+- [Well-known](https://raw.githubusercontent.com/api-evangelist/kovi/refs/heads/main/well-known/kovi-well-known.yml): Probe record of /.well-known/ discovery paths (none published)

@@ -1,0 +1,72 @@
+generated: '2026-07-19'
+method: searched
+source: live HTTP probes of Kovi web and API hosts
+summary:
+  documents_found: 0
+  note: >-
+    Kovi publishes no /.well-known/ discovery documents on any reachable host. The
+    motorista.kovi.com.br 200 responses below are FALSE POSITIVES: that host is a Vue
+    single-page application whose server returns the SPA index.html shell for any
+    extensionless path. The bodies were fetched and inspected and contain HTML, not
+    JSON. They are recorded as found: false. api.kovi.us returns 403 for all paths
+    behind its edge/WAF, so absence there is unverified rather than confirmed.
+hosts:
+- host: https://www.kovi.com.br
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    found: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    found: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    found: false
+  - path: /.well-known/api-catalog
+    status: 404
+    found: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    found: false
+- host: https://api.kovi.us
+  note: all paths blocked at the edge with 403; absence unverified
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    found: false
+  - path: /.well-known/openid-configuration
+    status: 403
+    found: false
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    found: false
+  - path: /.well-known/api-catalog
+    status: 403
+    found: false
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    found: false
+- host: https://motorista.kovi.com.br
+  note: SPA catch-all returns index.html (HTML) with 200 for extensionless paths
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    found: false
+  - path: /.well-known/openid-configuration
+    status: 200
+    found: false
+    content_type: text/html
+    reason: SPA index.html shell, not an OIDC discovery document
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    found: false
+    content_type: text/html
+    reason: SPA index.html shell, not an RFC 8414 metadata document
+  - path: /.well-known/api-catalog
+    status: 200
+    found: false
+    content_type: text/html
+    reason: SPA index.html shell, not an RFC 9727 API catalog
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    found: false
