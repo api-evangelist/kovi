@@ -1,21 +1,47 @@
 aid: kovi
 name: Kovi
-description: 'Kovi is a company surfaced as a portfolio company of prosus-ventures and added to the API
-  Evangelist network as a stub for enrichment. Sector: mobility. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: 'Kovi (Kovi Tecnologia S.A.) is a Brazilian mobility company founded in 2018 that rents and
+  subscribes cars to ride-hailing and delivery app drivers across Latin America. It operates a fleet of
+  new (0km) and certified pre-owned vehicles under monthly, annual and pay-per-kilometer plans that bundle
+  maintenance, insurance-style protection and vehicle documentation, with a purchase option on its Kovi
+  Proprio product. Kovi serves twelve Brazilian cities including Sao Paulo, Porto Alegre, Belo Horizonte,
+  Florianopolis, Curitiba, Fortaleza, Goiania, Brasilia, Recife, Santos, Campinas and Salvador, plus a
+  Mexican operation at kovi.mx, and employs more than 1,400 people. Driver onboarding and account
+  self-service run through the Central do Motorista web app and an Android application, which are backed
+  by a private, authentication-gated GraphQL API. Kovi publishes no public developer program, API
+  documentation or SDKs as of this profile.'
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://www.kovi.com.br/hubfs/Kovi-2024/Images/Logo%20preto%20-%20horizontal.svg
 url: https://raw.githubusercontent.com/api-evangelist/kovi/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - prosus-ventures
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: no-public-api-program
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Mobility
+- Car Rental
+- Car Subscription
+- Ride Hailing
+- Fleet Management
+- Transportation
+- Brazil
+- Latin America
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -24,4 +50,47 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://kovi.com.br
+  url: https://www.kovi.com.br
+- type: Blog
+  url: https://www.kovi.com.br/blog
+- type: Support
+  url: https://ajuda.kovi.com.br/hc/pt-br
+- type: HelpCenter
+  url: https://ajuda.kovi.com.br/hc/pt-br
+- type: Contact
+  url: https://www.kovi.com.br/contato
+- type: SignUp
+  url: https://cadastro.kovi.com.br/
+- type: Login
+  url: https://motorista.kovi.com.br/authentication/
+- type: Pricing
+  url: https://www.kovi.com.br/alugar-carro-mensal
+- type: TermsOfService
+  url: https://www.kovi.com.br/hubfs/Arquivos%20rodap%C3%A9/Termos%20de%20Uso%20do%20site%20e%20do%20aplicativo.pdf
+- type: PrivacyPolicy
+  url: https://www.kovi.com.br/hubfs/Arquivos%20rodap%C3%A9/Aviso%20de%20Privacidade.pdf
+- type: Compliance
+  url: https://www.kovi.com.br/etica-e-transparencia
+- type: Conformance
+  url: conformance/kovi-conformance.yml
+- type: DomainSecurity
+  url: security/kovi-domain-security.yml
+- type: LLMsTxt
+  url: llms/kovi-llms.txt
+- type: Careers
+  url: https://kovi.gupy.io/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/kovi/
+- type: Instagram
+  url: https://www.instagram.com/meukovi/
+- type: Facebook
+  url: https://www.facebook.com/meukovi
+- type: YouTube
+  url: https://www.youtube.com/channel/UCpsaeCR32TALObu-e0Ud5kA
+- type: AndroidApp
+  url: https://play.google.com/store/apps/details?id=com.kovi&hl=pt_BR
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
