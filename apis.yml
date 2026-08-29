@@ -10,6 +10,17 @@ description: 'Kovi (Kovi Tecnologia S.A.) is a Brazilian mobility company founde
   self-service run through the Central do Motorista web app and an Android application, which are backed
   by a private, authentication-gated GraphQL API. Kovi publishes no public developer program, API
   documentation or SDKs as of this profile.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
