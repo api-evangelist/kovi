@@ -64,25 +64,86 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Kovi (Kovi Tecnologia S.A.) is a Brazilian mobility company founded in 2018 that rents and subscribes cars to ride-hailing and delivery app drivers across Latin America. It operates a fleet of new (0km) and certified pre-owned vehicles under monthly, annual and pay-per-kilometer plans that bundle maintenance, protection and vehicle documentation, with a purchase option on its Kovi Proprio product.
+Kovi (Kovi Tecnologia S.A.) is a Brazilian mobility company founded in 2018 that rents and subscribes cars to ride-hailing and delivery app drivers across Latin America. It operates a fleet of new (0km) and certified pre-owned vehicles under monthly, annual and pay-per-kilometer plans that bundle maintenance, insurance-style protection and vehicle documentation, with a purchase option on its Kovi Proprio product. Kovi serves twelve Brazilian cities including Sao Paulo, Porto Alegre, Belo Horizonte, Florianopolis, Curitiba, Fortaleza, Goiania, Brasilia, Recife, Santos, Campinas and Salvador, plus a Mexican operation at kovi.mx, and employs more than 1,400 people. Driver onboarding and account self-service run through the Central do Motorista web app and an Android application, which are backed by a private, authentication-gated GraphQL API. Kovi publishes no public developer program, API documentation or SDKs as of this profile.
 
-Kovi serves twelve Brazilian cities — Sao Paulo, Porto Alegre, Belo Horizonte, Florianopolis, Curitiba, Fortaleza, Goiania, Brasilia, Recife, Santos, Campinas and Salvador — plus a Mexican operation at [kovi.mx](https://kovi.mx), and employs more than 1,400 people.
+**Areas:** Company · Mobility · Car Rental · Car Subscription · Ride Hailing · Fleet Management · Transportation · Brazil · Latin America
 
-Website: https://www.kovi.com.br — Backed by: prosus-ventures
+## Kovi on APIs.io
 
-## API posture
+Everything profiled for Kovi is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kovi/](https://apis.io/providers/kovi/)** — or go straight to one of the APIs or properties below.
 
-Kovi publishes **no public API program**: no developer portal, no API documentation, no OpenAPI or GraphQL SDL, no SDKs, no sandbox, no changelog and no status page.
+### Published properties
 
-It does run a real production API. The Central do Motorista driver app ([motorista.kovi.com.br](https://motorista.kovi.com.br/authentication/)) is a Vue/Quasar SPA whose bundle ships an Apollo GraphQL client pointed at `https://api.kovi.us/graphql` and `https://api.kovi.us/graphql/driver-central`. That endpoint is authentication-gated — an unauthenticated introspection query returns HTTP 401 `{"message":"Unauthorized"}` — so no schema could be captured.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-See [`conformance/kovi-conformance.yml`](conformance/kovi-conformance.yml) for the probed API surface, standards conformance and the full gap list.
+#### Security (1)
 
-## Artifacts
+Authentication, trust centre, and vulnerability disclosure.
 
-| Artifact | File | Method |
-|---|---|---|
-| Conformance | `conformance/kovi-conformance.yml` | probed |
-| Domain security | `security/kovi-domain-security.yml` | probed |
-| Well-known | `well-known/kovi-well-known.yml` | searched (none published) |
-| llms.txt | `llms/kovi-llms.txt` | generated |
+- [Kovi Domain Security](https://apis.io/security/kovi/kovi-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.kovi.com.br)
+- [Pricing](https://www.kovi.com.br/alugar-carro-mensal)
+- [Sign up](https://cadastro.kovi.com.br/)
+- [Support](https://ajuda.kovi.com.br/hc/pt-br)
+- [Blog](https://www.kovi.com.br/blog)
+- [Compliance](https://www.kovi.com.br/etica-e-transparencia)
+- [Terms of service](https://www.kovi.com.br/hubfs/Arquivos%20rodap%C3%A9/Termos%20de%20Uso%20do%20site%20e%20do%20aplicativo.pdf)
+- [Privacy policy](https://www.kovi.com.br/hubfs/Arquivos%20rodap%C3%A9/Aviso%20de%20Privacidade.pdf)
+
+## API Evangelist rating
+
+**Kin Score 19.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 46.1 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 23.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kovi/](https://apis.io/providers/kovi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Kovi: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kovi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
